@@ -1,0 +1,37 @@
+[package]
+name = "my_example"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/tum-ei-eda/etiss_riscv_rust_examples"
+authors = ["Philipp van Kempen"]
+description = "TODO"
+documentation = "TODO"
+keywords = ["riscv"]
+
+[package.metadata.docs.rs]
+default-target = "riscv32imc-unknown-none-elf"
+features = ["pre-init", "post-init"]
+targets = [
+    "riscv32i-unknown-none-elf", "riscv32imc-unknown-none-elf", "riscv32imac-unknown-none-elf",
+    "riscv64imac-unknown-none-elf", "riscv64gc-unknown-none-elf",
+]
+
+[build-dependencies]
+riscv-target-parser = { path = "riscv/riscv-target-parser", version = "0.1.2" }
+
+[dependencies]
+riscv = { path = "riscv/riscv", version = "0.15.0" }
+riscv-pac = { path = "riscv/riscv-pac", version = "0.2.0" }
+riscv-rt = { path = "riscv/riscv-rt", version = "0.16.0" }
+riscv-rt-macros = { path = "riscv/riscv-rt/macros", version = "0.6.0" }
+defmt = { version = "1.0.1", optional = true }
+riscv-semihosting = { version = "0.2.1", path = "riscv/riscv-semihosting" }
+
+[dev-dependencies]
+panic-halt = "1.0.0"
+
+[features]
+pre-init = []
+post-init = []
+defmt = ["dep:defmt"]
+pre-default-start-trap = ["riscv-rt-macros/pre-default-start-trap"]
