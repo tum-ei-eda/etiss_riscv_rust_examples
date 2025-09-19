@@ -33,7 +33,7 @@ The generated ELF is located here: `target/riscv32imc-unknown-none-elf/release/e
 /path/to/etiss/install/bin/run_helper.sh target/riscv32imc-unknown-none-elf/release/examples/hello -iexamples/hello.ini
 ```
 
-### By running `bare_etiss_processor` directly
+#### By running `bare_etiss_processor` directly
 
 ```sh
 /path/to/etiss/install/bin/bare_etiss_processor -iexamples/hello_standalone.ini
